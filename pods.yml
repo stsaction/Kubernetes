@@ -71,6 +71,11 @@ spec:
           readinessProbe:
             tcpSocket:
               port: 9092
+              # Set the serviceName and servicePort of the dependent service
+              # The service name and port should correspond to the Zookeeper service
+              # that Kafka depends on.
+              serviceName: zookeeper
+              servicePort: 2181
 
 ---
 apiVersion: v1
