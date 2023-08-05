@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -63,15 +64,13 @@ spec:
             - name: KAFKA_ZOOKEEPER_CONNECT
               value: 129.213.181.82:2181
             - name: KAFKA_CREATE_TOPICS
-              value: "topic1:1:1,topic2:1:1"
+              value: topic1:1:1,topic2:1:1
             - name: KAFKA_AUTO_CREATE_TOPICS_ENABLE
               value: "true"
             - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
               value: "1"
-          # Add other necessary environment variables
           dependsOn:
             - name: zookeeper
-
 
 ---
 apiVersion: v1
