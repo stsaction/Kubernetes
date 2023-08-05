@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -69,8 +68,9 @@ spec:
               value: "true"
             - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
               value: "1"
-          dependsOn:
-            - name: zookeeper
+          readinessProbe:
+            tcpSocket:
+              port: 9092
 
 ---
 apiVersion: v1
